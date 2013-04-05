@@ -18,3 +18,4 @@ $string['leaveblanktohide'] = 'leave blank to hide the title';
 $string['newfbblock'] = 'Facebook Comments';
 $string['pluginname'] = 'Moodle-Fb-Comments';
 $string['invalidvalue'] = 'That is an invalid value';
+$string['numposts'] = 'Number of comments to show';

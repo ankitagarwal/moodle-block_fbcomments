@@ -39,6 +39,10 @@ class block_moodlefbcomments_edit_form extends block_edit_form {
         $mform->setDefault('config_enablelike', 1);
         $mform->setDefault('config_enablecomment', 0);
 
+        $mform->addElement('text', 'config_numposts', get_string('numposts', 'block_moodlefbcomments'));
+        $mform->setType('config_numposts', PARAM_INT);
+        $mform->disabledIf('config_numposts', 'config_enablecomment', 'notchecked');
+
     }
     function validation($data, $files) {
         // Security checks.

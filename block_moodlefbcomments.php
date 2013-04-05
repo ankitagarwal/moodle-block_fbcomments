@@ -58,10 +58,13 @@ class block_moodlefbcomments extends block_base {
     	}(document, "script", "facebook-jssdk"));';
         $this->page->requires->js_init_code($jscode);
         if (!empty($this->config->enablelike)) {
-            $fblike = '<div class="fb-like" data-send="false" data-href="'.$url.'" data-show-faces="true"></div>';
+            $fblike = '<div class="fb-like" data-send="false" data-href="'.$url.'" data-show-faces="false"></div>';
         }
         if (!empty($this->config->enablecomment)) {
-            $fbcomment = '<div class="fb-comments" data-href="'.$url.'" data-num-posts="10"></div>';
+            if (empty($this->config->numposts)) {
+                $this->config->numposts = 10;
+            }
+            $fbcomment = '<div class="fb-comments" data-href="'.$url.'" data-num-posts="'.$this->config->numposts.'"></div>';
         }
         $this->content->text = $fblike;
         $this->content->text .= $fbcomment;
