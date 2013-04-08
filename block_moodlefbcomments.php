@@ -47,8 +47,7 @@ class block_moodlefbcomments extends block_base {
 
         }
         $url = $url->out(true);
-        $url = "http://google.com";
-        //$this->page->requires->js_init_call('M.moodle-block_moodlefbomments.init');
+        $this->content->text = '<div id="fb-root"></div>';
         $jscode = '(function(d, s, id) {
     	  var js, fjs = d.getElementsByTagName(s)[0];
     	  if (d.getElementById(id)) return;
@@ -66,7 +65,7 @@ class block_moodlefbcomments extends block_base {
             }
             $fbcomment = '<div class="fb-comments" data-href="'.$url.'" data-num-posts="'.$this->config->numposts.'"></div>';
         }
-        $this->content->text = $fblike;
+        $this->content->text .= $fblike;
         $this->content->text .= $fbcomment;
 
         return $this->content;
