@@ -1,16 +1,16 @@
 <?php
 /**
- * moodlefbcomments block class.
+ * fbcomments block class.
  *
- * @package   block_moodlefbcomments
+ * @package   block_fbcomments
  * @copyright 2013 Ankit Agarwal
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class block_moodlefbcomments extends block_base {
+class block_fbcomments extends block_base {
 
     function init() {
-        $this->title = get_string('pluginname', 'block_moodlefbcomments');
+        $this->title = get_string('pluginname', 'block_fbcomments');
     }
 
     function has_config() {
@@ -22,7 +22,7 @@ class block_moodlefbcomments extends block_base {
     }
 
     function specialization() {
-        $this->title = isset($this->config->title) ? format_string($this->config->title) : format_string(get_string('newfbblock', 'block_moodlefbcomments'));
+        $this->title = isset($this->config->title) ? format_string($this->config->title) : format_string(get_string('newfbblock', 'block_fbcomments'));
     }
 
     function instance_allow_multiple() {
@@ -38,13 +38,18 @@ class block_moodlefbcomments extends block_base {
         $fblike = null;
         $fbcomment = null;
         $this->content = new stdClass();
-        switch ($this->config->urltype) {
-            case 2 : $url = new moodle_url($CFG->wwwroot);
-                    break;
-            case 1 :
-            default : $url = $this->page->url;
-                    break;
-
+        // Config wont be set if block is just added.
+        if (!empty($this->config->urltype)) {
+            switch ($this->config->urltype) {
+                case 2 : $url = new moodle_url($CFG->wwwroot);
+                        break;
+                case 1 :
+                default : $url = $this->page->url;
+                        break;
+            }
+        } else {
+            // Should stop any notices.
+            $url = $this->page->url;
         }
         $url = $url->out(true);
         $this->content->text = '<div id="fb-root"></div>';

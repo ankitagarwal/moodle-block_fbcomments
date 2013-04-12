@@ -1,8 +1,8 @@
 <?php
 /**
- * Caps for moodlefbcomments block instances.
+ * Caps for fbcomments block instances.
  *
- * @package   block_moodlefbcomments
+ * @package   block_fbcomments
  * @copyright 2013 Ankit Agarwal
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -10,7 +10,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $capabilities = array(
 
-    'block/moodlefbcomments:myaddinstance' => array(
+    'block/fbcomments:myaddinstance' => array(
         'captype' => 'write',
         'contextlevel' => CONTEXT_SYSTEM,
         'archetypes' => array(
@@ -20,7 +20,7 @@ $capabilities = array(
         'clonepermissionsfrom' => 'moodle/my:manageblocks'
     ),
 
-    'block/moodlefbcomments:addinstance' => array(
+    'block/fbcomments:addinstance' => array(
         'riskbitmask' => RISK_SPAM | RISK_XSS,
 
         'captype' => 'write',

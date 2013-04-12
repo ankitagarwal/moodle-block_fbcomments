@@ -1,11 +1,10 @@
-MoodleFbComments
+Fbcomments
 =====================
 
 Facebook like and comment block for Moodle
 
 Installation Instruction
 =====================
-
 
 * Make sure you have all the required versions.
 * Download and unpack the block folder.
@@ -14,6 +13,7 @@ Installation Instruction
 * Turn editing on in any home or course page or any other page.
 * Add the block to the page
 * Visit the config link in the block for more options.
+* Please note due to the way FB works, it probabily wont work properly on local installs.
 
 Things to do
 =====================
@@ -21,7 +21,7 @@ Things to do
 
 Maturity
 ====================
-BETA ( use at your own risk)
+BETA (use at your own risk)
 
 Features
 ====================
