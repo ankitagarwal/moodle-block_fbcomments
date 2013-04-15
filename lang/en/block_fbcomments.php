@@ -9,6 +9,8 @@
 
 $string['siteroot'] = 'Content for whole site';
 $string['thispage'] = 'Contents for the block page only';
+$string['coursepage'] = 'Contents for the course';
+$string['modpage'] = 'Contents for the module:{$a}';
 $string['urltype'] = 'Block represents';
 $string['enablecomment'] = 'Enable comment';
 $string['enablelike'] = 'Enable like button';

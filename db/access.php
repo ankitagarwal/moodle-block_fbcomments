@@ -32,4 +32,15 @@ $capabilities = array(
 
         'clonepermissionsfrom' => 'moodle/site:manageblocks'
     ),
+    // Override at lower contexts.
+    'block/fbcomments:manageurl' => array(
+        'riskbitmask' => RISK_SPAM,
+
+        'captype' => 'write',
+        'contextlevel' => CONTEXT_COURSE,
+        'archetypes' => array(
+            'editingteacher' => CAP_ALLOW,
+            'manager' => CAP_ALLOW
+        ),
+    ),
 );

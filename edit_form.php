@@ -23,10 +23,8 @@ class block_fbcomments_edit_form extends block_edit_form {
         $mform->addElement('text', 'config_title', get_string('configtitle', 'block_fbcomments'));
         $mform->setType('config_title', PARAM_TEXT);
         $mform->setDefault('config_title', get_string('newfbblock', 'block_fbcomments'));
-
-        if (is_siteadmin()) {
-            $options = array(1 => get_string('thispage', 'block_fbcomments'),
-                    2 => get_string('siteroot', 'block_fbcomments'));
+        $options = $this->get_page_options();
+        if (count($options) > 1) {
             $mform->addElement('select', 'config_urltype', get_string('urltype', 'block_fbcomments'), $options);
         } else {
             $mform->addElement('hidden', 'config_urltype', 1);
@@ -54,5 +52,19 @@ class block_fbcomments_edit_form extends block_edit_form {
             }
         }
         return $error;
+    }
+    function get_page_options() {
+        $options = array(1 => get_string('thispage', 'block_fbcomments'));
+        $pagecontext = $this->page->context;
+        $coursecontext = $pagecontext->get_course_context(IGNORE_MISSING);
+        if (is_siteadmin()) {
+            $options[2] = get_string('siteroot', 'block_fbcomments');
+        }
+        if (has_capability('block/fbcomments:manageurl', $coursecontext)) {
+            $options[3] = get_string('coursepage', 'block_fbcomments');
+        }
+        if ($pagecontext->contextlevel == CONTEXT_MODULE && has_capability('block/fbcomments:manageurl', $pagecontext)) {
+            $options[4] = get_string('modpage', 'block_fbcomments', $pagecontext->get_context_name(false));
+        }
     }
 }
