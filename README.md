@@ -38,7 +38,7 @@ Change log
 =====================
 * 2012070801 - First beta release - 1.0
 * 2013041200 - First public release - 1.1
-
+* 2013041500 - Added course/mod level urls - 1.2
 
 About Author
 =====================

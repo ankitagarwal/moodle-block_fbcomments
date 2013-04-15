@@ -41,6 +41,10 @@ class block_fbcomments extends block_base {
         // Config wont be set if block is just added.
         if (!empty($this->config->urltype)) {
             switch ($this->config->urltype) {
+                case 4 : $url = $this->get_mod_url();
+                        break;
+                case 3 : $url = $this->get_course_url();
+                        break;
                 case 2 : $url = new moodle_url($CFG->wwwroot);
                         break;
                 case 1 :
@@ -74,6 +78,29 @@ class block_fbcomments extends block_base {
         $this->content->text .= $fbcomment;
 
         return $this->content;
+    }
+
+    /**
+     * Return course url, which current page belongs to.
+     *
+     * @return moodle_url
+     */
+    function get_course_url() {
+        global $CFG;
+        $context = $this->context->get_course_context();
+        return $url = new moodle_url($context->get_url());
+    }
+
+    /**
+     * Return mod url, which current page belongs to.
+     *
+     * @return moodle_url
+     */
+    function get_mod_url() {
+        global $CFG;
+        // context of the page holding the block.
+        $context = $this->page->context;
+        return $url = new moodle_url($context->get_url());
     }
 
     /**
