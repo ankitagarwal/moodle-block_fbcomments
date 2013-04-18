@@ -21,3 +21,7 @@ $string['newfbblock'] = 'Facebook comments';
 $string['pluginname'] = 'Fbcomments';
 $string['invalidvalue'] = 'That is an invalid value';
 $string['numposts'] = 'Number of comments to show';
+$string['lightcolor'] = 'Light color theme';
+$string['darkcolor'] = 'Dark color theme';
+$string['colorscheme'] = 'Theme to use';
+

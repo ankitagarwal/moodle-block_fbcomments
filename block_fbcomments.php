@@ -52,10 +52,11 @@ class block_fbcomments extends block_base {
                         break;
             }
         } else {
-            // Should stop any notices.
-            $url = $this->page->url;
+            // No point going any further.
+            return '';
         }
         $url = $url->out(true);
+
         $this->content->text = '<div id="fb-root"></div>';
         $jscode = '(function(d, s, id) {
     	  var js, fjs = d.getElementsByTagName(s)[0];
@@ -65,14 +66,16 @@ class block_fbcomments extends block_base {
     	  fjs.parentNode.insertBefore(js, fjs);
     	}(document, "script", "facebook-jssdk"));';
         $this->page->requires->js_init_code($jscode);
+
+        $color = $this->config->colorscheme;
         if (!empty($this->config->enablelike)) {
-            $fblike = '<div class="fb-like" data-send="false" data-href="'.$url.'" data-show-faces="false"></div>';
+            $fblike = '<div class="fb-like" data-send="false" data-href="'.$url.'" data-show-faces="false" colorscheme="'.$color.'"></div>';
         }
         if (!empty($this->config->enablecomment)) {
             if (empty($this->config->numposts)) {
                 $this->config->numposts = 10;
             }
-            $fbcomment = '<div class="fb-comments" data-href="'.$url.'" data-num-posts="'.$this->config->numposts.'"></div>';
+            $fbcomment = '<div class="fb-comments" data-href="'.$url.'" data-num-posts="'.$this->config->numposts.'" colorscheme="'.$color.'"></div>';
         }
         $this->content->text .= $fblike;
         $this->content->text .= $fbcomment;

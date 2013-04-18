@@ -17,8 +17,8 @@ Installation Instruction
 
 Moodle compatibility
 =====================
-* Tested with Moodle 2.4 and 2.5
-* Should work with Moodle 2.2 and 2.3 (Please inform me if you get it working or get errors)
+* Tested with Moodle 2.3, 2.4 and 2.5
+* Should work with Moodle 2.2 (Please inform me if you get it working or get errors)
 
 Things to do
 =====================
@@ -39,6 +39,7 @@ Change log
 * 2012070801 - First beta release - 1.0
 * 2013041200 - First public release - 1.1
 * 2013041500 - Added course/mod level urls - 1.2
+* 2013041800 - Support for color themes and Moodle 2.3 -1.3 
 
 About Author
 =====================

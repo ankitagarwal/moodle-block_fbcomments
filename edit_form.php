@@ -34,6 +34,10 @@ class block_fbcomments_edit_form extends block_edit_form {
         $mform->setDefault('config_enablelike', 1);
         $mform->setDefault('config_enablecomment', 0);
 
+        $options = array('light' => get_string('lightcolor', 'block_fbcomments'), 'dark' => get_string('darkcolor', 'block_fbcomments'));
+        $mform->addElement('select', 'config_colorscheme', get_string('colorscheme', 'block_fbcomments'), $options);
+        $mform->setDefault('config_colorscheme', 'light');
+
         $mform->addElement('text', 'config_numposts', get_string('numposts', 'block_fbcomments'));
         $mform->setType('config_numposts', PARAM_INT);
         $mform->setDefault('config_numposts', 10);
@@ -50,7 +54,7 @@ class block_fbcomments_edit_form extends block_edit_form {
             // Most probabily an admin.
             $options[2] = get_string('siteroot', 'block_fbcomments');
         }
-        if (has_capability('block/fbcomments:manageurl', $coursecontext)) {
+        if ($coursecontext && has_capability('block/fbcomments:manageurl', $coursecontext)) {
             $options[3] = get_string('coursepage', 'block_fbcomments');
         }
         if ($pagecontext->contextlevel == CONTEXT_MODULE && has_capability('block/fbcomments:manageurl', $pagecontext)) {
