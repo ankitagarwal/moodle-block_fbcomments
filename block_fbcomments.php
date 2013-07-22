@@ -25,7 +25,7 @@
 
 class block_fbcomments extends block_base {
 
-    public function init() {
+    public function  __construct() {
         $this->title = get_string('pluginname', 'block_fbcomments');
     }
 
@@ -47,6 +47,17 @@ class block_fbcomments extends block_base {
 
     public function get_content() {
         global $CFG;
+
+        if (!empty($this->config->appid) && !empty($this->config->enablecomment)) {
+            $meta = html_writer::tag("meta", "", array("property" => "fb:app_id", "content" => $this->config->appid));
+            if (empty ($CFG->additionalhtmlhead)) {
+                $CFG->additionalhtmlhead = '';
+            }
+            // Moodle creates a instance of block multiple times in every page, not sure why.
+            if (strpos($CFG->additionalhtmlhead, $meta) === false) {
+                $CFG->additionalhtmlhead .= $meta;
+            }
+        }
 
         if ($this->content !== null) {
             return $this->content;

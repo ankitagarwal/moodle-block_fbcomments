@@ -26,20 +26,23 @@ Things to do
 
 Maturity
 ====================
-BETA (use at your own risk)
+STABLE
 
 Features
 ====================
-* Facebook comment box, with custom number of comments
-* Facebook like box
+* Facebook comment box, with custom number of comments.
+* Facebook like box.
 * Display indivisual box for each page or a single one through out the site.
+* Ability to manage all comments posted using a Fb app id.
+* Supports a dark and light colored theme.
 
 Change log
 =====================
 * 2012070801 - First beta release - 1.0
 * 2013041200 - First public release - 1.1
 * 2013041500 - Added course/mod level urls - 1.2
-* 2013041800 - Support for color themes and Moodle 2.3 -1.3 
+* 2013041800 - Support for color themes and Moodle 2.3 -1.3
+* 2013071800 - Added appid support, code cleanup, - 1.4
 
 About Author
 =====================

@@ -21,6 +21,10 @@
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+$string['appid'] = 'Facebook App id';
+$string['appid_help'] = 'Facebook App lets you manage comments posted on various pages using this block. It also gives you various other related stats.
+Visit <a target="_blank" href="http://developers.facebook.com/apps/"> Get a facebook app </a> to get one. Setting this is optional.';
+$string['notnumeric'] = 'This field must be numeric';
 $string['siteroot'] = 'Content for whole site';
 $string['thispage'] = 'Contents for the block page only';
 $string['coursepage'] = 'Contents for the course';

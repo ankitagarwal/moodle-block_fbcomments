@@ -29,7 +29,6 @@
  */
 class block_fbcomments_edit_form extends block_edit_form {
     protected function specific_definition($mform) {
-        global $CFG;
 
         // Fields for editing HTML block title and contents.
         $mform->addElement('header', 'configheader', get_string('blocksettings', 'block'));
@@ -54,8 +53,15 @@ class block_fbcomments_edit_form extends block_edit_form {
 
         $mform->addElement('text', 'config_numposts', get_string('numposts', 'block_fbcomments'));
         $mform->setType('config_numposts', PARAM_INT);
+        $mform->addRule('config_numposts', get_string("notnumeric", "block_fbcomments"), "numeric", null, "client");
         $mform->setDefault('config_numposts', 10);
         $mform->disabledIf('config_numposts', 'config_enablecomment', 'notchecked');
+
+        $mform->addElement('text', 'config_appid', get_string('appid', 'block_fbcomments'));
+        $mform->addHelpButton("config_appid", "appid", "block_fbcomments");
+        $mform->addRule('config_appid', get_string("notnumeric", "block_fbcomments"), "numeric", null, "client");
+        $mform->setType('config_appid', PARAM_INT);
+        $mform->disabledIf('config_appid', 'config_enablecomment', 'notchecked');
 
     }
     // No security checks needed as moodle automatically checks if submitted value for a select is in $options.
