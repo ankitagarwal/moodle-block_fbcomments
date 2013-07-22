@@ -1,5 +1,5 @@
 .block_fbcomments .fb-comments, 
-.block_fbcomments .fb-comments span, 
+.block_fbcomments .fb-comments span,
 .block_fbcomments .fb-comments iframe[style] {width: 100% !important;}
 
 .block_fbcomments .fb-like, 

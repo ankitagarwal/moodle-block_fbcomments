@@ -1,4 +1,20 @@
 <?php
+// This file is part of Fbcomments - https://github.com/ankitagarwal/moodle-block_fbcomments
+//
+// Fbcomments is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// Fbcomments is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// For GNU General Public License, see <http://www.gnu.org/licenses/>.
+
+
+
 /**
  * fbcomments block class.
  *
@@ -9,30 +25,30 @@
 
 class block_fbcomments extends block_base {
 
-    function init() {
+    public function init() {
         $this->title = get_string('pluginname', 'block_fbcomments');
     }
 
-    function has_config() {
-        return true;
-    }
-
-    function applicable_formats() {
-        return array('all' => true);
-    }
-
-    function specialization() {
-        $this->title = isset($this->config->title) ? format_string($this->config->title) : format_string(get_string('newfbblock', 'block_fbcomments'));
-    }
-
-    function instance_allow_multiple() {
+    public function has_config() {
         return false;
     }
 
-    function get_content() {
+    public function applicable_formats() {
+        return array('all' => true);
+    }
+
+    public function specialization() {
+        $this->title = isset($this->config->title) ? format_string($this->config->title) : format_string(get_string('newfbblock', 'block_fbcomments'));
+    }
+
+    public function instance_allow_multiple() {
+        return false;
+    }
+
+    public function get_content() {
         global $CFG;
 
-        if ($this->content !== NULL) {
+        if ($this->content !== null) {
             return $this->content;
         }
         $fblike = null;
@@ -88,8 +104,7 @@ class block_fbcomments extends block_base {
      *
      * @return moodle_url
      */
-    function get_course_url() {
-        global $CFG;
+    public function get_course_url() {
         $context = $this->context->get_course_context();
         return $url = new moodle_url($context->get_url());
     }
@@ -99,9 +114,8 @@ class block_fbcomments extends block_base {
      *
      * @return moodle_url
      */
-    function get_mod_url() {
-        global $CFG;
-        // context of the page holding the block.
+    public function get_mod_url() {
+        // Context of the page holding the block.
         $context = $this->page->context;
         return $url = new moodle_url($context->get_url());
     }
