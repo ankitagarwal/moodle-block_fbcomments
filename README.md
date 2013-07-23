@@ -17,8 +17,7 @@ Installation Instruction
 
 Moodle compatibility
 =====================
-* Tested with Moodle 2.3, 2.4 and 2.5
-* Should work with Moodle 2.2 (Please inform me if you get it working or get errors)
+* Tested with Moodle 2.2, 2.3, 2.4 and 2.5
 
 Things to do
 =====================
