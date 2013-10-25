@@ -41,7 +41,9 @@ Change log
 * 2013041200 - First public release - 1.1
 * 2013041500 - Added course/mod level urls - 1.2
 * 2013041800 - Support for color themes and Moodle 2.3 -1.3
-* 2013071800 - Added appid support, code cleanup, - 1.4
+* 2013071800 - Added appid support, code cleanup - 1.4
+* 2013071800 - code cleanup - 1.5
+* 2013071800 - Fix missing capabilities strings - 1.6
 
 About Author
 =====================
