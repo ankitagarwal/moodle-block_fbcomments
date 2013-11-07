@@ -57,8 +57,14 @@ class block_fbcomments_edit_form extends block_edit_form {
         $mform->setDefault('config_numposts', 10);
         $mform->disabledIf('config_numposts', 'config_enablecomment', 'notchecked');
 
+        $options = block_fbcomments::get_order_by_options();
+        $mform->addElement('select', 'config_commentorder', get_string('commentorder', 'block_fbcomments'), $options);
+        $mform->setType('config_commentorder', PARAM_ALPHA);
+        $mform->addHelpButton('config_commentorder', 'commentorder', 'block_fbcomments');
+        $mform->disabledIf('config_commentorder', 'config_enablecomment', 'notchecked');
+
         $mform->addElement('text', 'config_appid', get_string('appid', 'block_fbcomments'));
-        $mform->addHelpButton("config_appid", "appid", "block_fbcomments");
+        $mform->addHelpButton('config_appid', 'appid', 'block_fbcomments');
         $mform->addRule('config_appid', get_string("notnumeric", "block_fbcomments"), "numeric", null, "client");
         $mform->setType('config_appid', PARAM_INT);
         $mform->disabledIf('config_appid', 'config_enablecomment', 'notchecked');
@@ -66,7 +72,7 @@ class block_fbcomments_edit_form extends block_edit_form {
     }
     // No security checks needed as moodle automatically checks if submitted value for a select is in $options.
 
-    function get_page_options() {
+    private function get_page_options() {
         $options = array(1 => get_string('thispage', 'block_fbcomments'));
         $pagecontext = $this->page->context;
         $coursecontext = $pagecontext->get_course_context(IGNORE_MISSING);

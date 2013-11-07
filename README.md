@@ -44,6 +44,7 @@ Change log
 * 2013071800 - Added appid support, code cleanup - 1.4
 * 2013071800 - code cleanup - 1.5
 * 2013071800 - Fix missing capabilities strings - 1.6
+* 2013071800 - Add support for ordering of comments - 1.7
 
 About Author
 =====================

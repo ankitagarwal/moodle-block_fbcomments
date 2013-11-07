@@ -13,17 +13,24 @@
 //
 // For GNU General Public License, see <http://www.gnu.org/licenses/>.
 
-
-
 /**
  * fbcomments block class.
  *
  * @package   block_fbcomments
- * @copyright 2013 Ankit Agarwal
+ * @copyright 2013 onwards Ankit Agarwal
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 class block_fbcomments extends block_base {
+
+    /** @const string order by constants. (used for comments ordering) */
+    const ORDER_SOCIAL = 'social';
+
+    /** @const string order by constants. (used for comments ordering) */
+    const ORDER_TIME = 'time';
+
+    /** @const string order by constants. (used for comments ordering) */
+    const ORDER_REVERSE_TIME = 'reverse_time';
 
     public function  __construct() {
         $this->title = get_string('pluginname', 'block_fbcomments');
@@ -95,14 +102,21 @@ class block_fbcomments extends block_base {
         $this->page->requires->js_init_code($jscode);
 
         $color = $this->config->colorscheme;
+        $attr = 'data-href="'.$url.'" colorscheme="'.$color.'"';
         if (!empty($this->config->enablelike)) {
-            $fblike = '<div class="fb-like" data-send="false" data-href="'.$url.'" data-show-faces="false" colorscheme="'.$color.'"></div>';
+            $likeattr = 'data-send="false" data-show-faces="false"';
+            $fblike = "<div class='fb-like' $likeattr $attr></div>";
         }
         if (!empty($this->config->enablecomment)) {
             if (empty($this->config->numposts)) {
                 $this->config->numposts = 10;
             }
-            $fbcomment = '<div class="fb-comments" data-href="'.$url.'" data-num-posts="'.$this->config->numposts.'" colorscheme="'.$color.'"></div>';
+            $commentattr = 'data-num-posts="'.$this->config->numposts.'"';
+            if (empty($this->config->commentorder)) {
+                $this->config->commentorder = self::ORDER_SOCIAL;
+            }
+            $commentattr .= 'data-order-by="'.$this->config->commentorder.'"';
+            $fbcomment = "<div class='fb-comments' $commentattr $attr></div>";
         }
         $this->content->text .= $fblike;
         $this->content->text .= $fbcomment;
@@ -139,5 +153,19 @@ class block_fbcomments extends block_base {
      */
     public function instance_can_be_docked() {
         return (!empty($this->config->title) && parent::instance_can_be_docked());
+    }
+
+    /**
+     * Returns a list of allowed order-by parameters.
+     *
+     * @return array
+     */
+    public static function get_order_by_options() {
+        $arr = array(
+            self::ORDER_SOCIAL => get_string(self::ORDER_SOCIAL, 'block_fbcomments'),
+            self::ORDER_TIME => get_string(self::ORDER_TIME, 'block_fbcomments'),
+            self::ORDER_REVERSE_TIME => get_string(self::ORDER_REVERSE_TIME, 'block_fbcomments')
+        );
+        return $arr;
     }
 }

@@ -24,23 +24,38 @@
 $string['appid'] = 'Facebook App id';
 $string['appid_help'] = 'Facebook App lets you manage comments posted on various pages using this block. It also gives you various other related stats.
 Visit <a target="_blank" href="http://developers.facebook.com/apps/"> Get a facebook app </a> to get one. Setting this is optional.';
-$string['notnumeric'] = 'This field must be numeric';
-$string['siteroot'] = 'Content for whole site';
-$string['thispage'] = 'Contents for the block page only';
+$string['commentorder'] = 'Order of comments';
+$string['commentorder_help'] = 'Comments can be ordered by following order:-
+
+social aka "Social Relevance": The Comments plugin uses social signals to surface the highest quality comments.
+Comments are ordered to display the most relevant comments from friends and friends of friends as well as the most-liked or active discussion threads.Comments marked as spam are hidden from view.
+
+Time commented: Comments are shown in the order in which they were posted, with the oldest comments at the top,
+and the newest at the bottom.
+
+Reverse time commented: Comments are shown in the opposite order from which they were posted,
+with the newest comments at the top,and the oldest at the bottom.';
+$string['configtitle'] = 'Block title';
+$string['colorscheme'] = 'Theme to use';
 $string['coursepage'] = 'Contents for the course';
-$string['modpage'] = 'Contents for the module:{$a}';
-$string['urltype'] = 'Block represents';
+$string['darkcolor'] = 'Dark color theme';
 $string['enablecomment'] = 'Enable comment';
 $string['enablelike'] = 'Enable like button';
-$string['configtitle'] = 'Block title';
-$string['fbcomments:addinstance'] = 'Add a new Fbcomments block';
-$string['fbcomments:manageurl'] = 'Manage Fbcomments block url';
-$string['leaveblanktohide'] = 'leave blank to hide the title';
-$string['newfbblock'] = 'Facebook comments';
-$string['pluginname'] = 'Fbcomments';
+$string['fbcomments:addinstance'] = 'Add a new Facebook comments block';
+$string['fbcomments:manageurl'] = 'Manage Facebook comments block url';
+$string['fbcomments:myaddinstance'] = 'Add a new Facebook comments block';
 $string['invalidvalue'] = 'That is an invalid value';
-$string['numposts'] = 'Number of comments to show';
+$string['leaveblanktohide'] = 'leave blank to hide the title';
 $string['lightcolor'] = 'Light color theme';
-$string['darkcolor'] = 'Dark color theme';
-$string['colorscheme'] = 'Theme to use';
+$string['modpage'] = 'Contents for the module:{$a}';
+$string['newfbblock'] = 'Facebook comments';
+$string['notnumeric'] = 'This field must be numeric';
+$string['numposts'] = 'Number of comments to show';
+$string['pluginname'] = 'Facebook comments';
+$string['reverse_time'] = 'Reverse time commented';
+$string['siteroot'] = 'Content for whole site';
+$string['social'] = 'Social';
+$string['thispage'] = 'Contents for the block page only';
+$string['time'] = 'Time commented';
+$string['urltype'] = 'Block represents';
 
