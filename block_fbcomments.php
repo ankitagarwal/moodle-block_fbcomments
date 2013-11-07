@@ -105,8 +105,15 @@ class block_fbcomments extends block_base {
         $attr = 'data-href="'.$url.'" colorscheme="'.$color.'"';
         if (!empty($this->config->enablelike)) {
             $likeattr = 'data-send="false" data-show-faces="false"';
+
+            // Add a share button if specified.
+            if (!empty($this->config->enableshare)) {
+                $likeattr .= ' data-share="true"';
+            }
             $fblike = "<div class='fb-like' $likeattr $attr></div>";
         }
+
+        // Add comments block.
         if (!empty($this->config->enablecomment)) {
             if (empty($this->config->numposts)) {
                 $this->config->numposts = 10;

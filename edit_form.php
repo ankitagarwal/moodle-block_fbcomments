@@ -41,11 +41,14 @@ class block_fbcomments_edit_form extends block_edit_form {
         $mform->addElement('select', 'config_urltype', get_string('urltype', 'block_fbcomments'), $options);
 
         $mform->addElement('advcheckbox', 'config_enablelike', get_string('enablelike', 'block_fbcomments'));
+        $mform->addElement('advcheckbox', 'config_enableshare', get_string('enableshare', 'block_fbcomments'));
         $mform->addElement('advcheckbox', 'config_enablecomment', get_string('enablecomment', 'block_fbcomments'));
         $mform->setType('config_enablelike', PARAM_BOOL);
         $mform->setType('config_enablecomment', PARAM_BOOL);
+        $mform->setType('config_enableshare', PARAM_BOOL);
         $mform->setDefault('config_enablelike', 1);
         $mform->setDefault('config_enablecomment', 0);
+        $mform->setDefault('config_enableshare', 0);
 
         $options = array('light' => get_string('lightcolor', 'block_fbcomments'), 'dark' => get_string('darkcolor', 'block_fbcomments'));
         $mform->addElement('select', 'config_colorscheme', get_string('colorscheme', 'block_fbcomments'), $options);
