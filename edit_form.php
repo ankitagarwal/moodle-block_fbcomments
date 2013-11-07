@@ -39,6 +39,10 @@ class block_fbcomments_edit_form extends block_edit_form {
 
         $options = $this->get_page_options();
         $mform->addElement('select', 'config_urltype', get_string('urltype', 'block_fbcomments'), $options);
+        $options = array('light' => get_string('lightcolor', 'block_fbcomments'), 'dark' => get_string('darkcolor', 'block_fbcomments'));
+        $mform->addElement('select', 'config_colorscheme', get_string('colorscheme', 'block_fbcomments'), $options);
+        $mform->setDefault('config_colorscheme', 'light');
+
 
         $mform->addElement('advcheckbox', 'config_enablelike', get_string('enablelike', 'block_fbcomments'));
         $mform->addElement('advcheckbox', 'config_enableshare', get_string('enableshare', 'block_fbcomments'));
@@ -49,10 +53,7 @@ class block_fbcomments_edit_form extends block_edit_form {
         $mform->setDefault('config_enablelike', 1);
         $mform->setDefault('config_enablecomment', 0);
         $mform->setDefault('config_enableshare', 0);
-
-        $options = array('light' => get_string('lightcolor', 'block_fbcomments'), 'dark' => get_string('darkcolor', 'block_fbcomments'));
-        $mform->addElement('select', 'config_colorscheme', get_string('colorscheme', 'block_fbcomments'), $options);
-        $mform->setDefault('config_colorscheme', 'light');
+        $mform->disabledIf('config_enableshare', 'config_enablelike', 'notchecked');
 
         $mform->addElement('text', 'config_numposts', get_string('numposts', 'block_fbcomments'));
         $mform->setType('config_numposts', PARAM_INT);
