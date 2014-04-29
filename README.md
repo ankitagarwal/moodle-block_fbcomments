@@ -45,6 +45,7 @@ Change log
 * 2013071800 - code cleanup - 1.5
 * 2013071800 - Fix missing capabilities strings - 1.6
 * 2013071800 - Add support for ordering of comments - 1.7
+* 2014032000 - Add support for Moodle 2.7 and drop support for Moodle 2.2 - 1.8
 
 About Author
 =====================
