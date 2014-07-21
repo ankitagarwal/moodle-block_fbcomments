@@ -14,13 +14,12 @@
 // For GNU General Public License, see <http://www.gnu.org/licenses/>.
 
 /**
- * fbcomments block class.
+ * Fbcomments block class.
  *
  * @package   block_fbcomments
  * @copyright 2013 onwards Ankit Agarwal
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-
 class block_fbcomments extends block_base {
 
     /** @const string order by constants. (used for comments ordering) */
@@ -45,7 +44,8 @@ class block_fbcomments extends block_base {
     }
 
     public function specialization() {
-        $this->title = isset($this->config->title) ? format_string($this->config->title) : format_string(get_string('newfbblock', 'block_fbcomments'));
+        $this->title = isset($this->config->title) ?
+                format_string($this->config->title) : format_string(get_string('newfbblock', 'block_fbcomments'));
     }
 
     public function instance_allow_multiple() {
@@ -92,41 +92,13 @@ class block_fbcomments extends block_base {
         $url = $url->out(true);
 
         $this->content->text = '<div id="fb-root"></div>';
-        $jscode = '(function(d, s, id) {
-    	  var js, fjs = d.getElementsByTagName(s)[0];
-    	  if (d.getElementById(id)) return;
-    	  js = d.createElement(s); js.id = id;
-    	  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-    	  fjs.parentNode.insertBefore(js, fjs);
-    	}(document, "script", "facebook-jssdk"));';
+        $jscode = $this->get_fb_js();
         $this->page->requires->js_init_code($jscode);
 
         $color = $this->config->colorscheme;
         $attr = 'data-href="'.$url.'" colorscheme="'.$color.'"';
-        if (!empty($this->config->enablelike)) {
-            $likeattr = 'data-send="false" data-show-faces="false"';
-
-            // Add a share button if specified.
-            if (!empty($this->config->enableshare)) {
-                $likeattr .= ' data-share="true"';
-            }
-            $fblike = "<div class='fb-like' $likeattr $attr></div>";
-        }
-
-        // Add comments block.
-        if (!empty($this->config->enablecomment)) {
-            if (empty($this->config->numposts)) {
-                $this->config->numposts = 10;
-            }
-            $commentattr = 'data-num-posts="'.$this->config->numposts.'"';
-            if (empty($this->config->commentorder)) {
-                $this->config->commentorder = self::ORDER_SOCIAL;
-            }
-            $commentattr .= 'data-order-by="'.$this->config->commentorder.'"';
-            $fbcomment = "<div class='fb-comments' $commentattr $attr></div>";
-        }
-        $this->content->text .= $fblike;
-        $this->content->text .= $fbcomment;
+        $this->content->text .= $this->get_like_share_button($attr); // Add like/share button if needed.
+        $this->content->text .= $this->get_comments_box($attr); // Add comments block.
 
         return $this->content;
     }
@@ -174,5 +146,62 @@ class block_fbcomments extends block_base {
             self::ORDER_REVERSE_TIME => get_string(self::ORDER_REVERSE_TIME, 'block_fbcomments')
         );
         return $arr;
+    }
+
+    /**
+     * Get Facebook js code.
+     *
+     * @return string
+     */
+    protected function get_fb_js() {
+        return '(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, "script", "facebook-jssdk"));';
+    }
+
+    /**
+     * Get html for Facebook like and share button if enabled.
+     *
+     * @param string $attr Attributes to add to the like and share button.
+     *
+     * @return string HTML code for the like button.
+     */
+    protected function get_like_share_button($attr = '') {
+        if (!empty($this->config->enablelike)) {
+            $likeattr = 'data-send="false" data-show-faces="false"';
+
+            // Add a share button if specified.
+            if (!empty($this->config->enableshare)) {
+                $likeattr .= ' data-share="true"';
+            }
+            return "<div class='fb-like' $likeattr $attr></div>";
+        }
+        return '';
+    }
+
+    /**
+     * Get html for Facebook comments box if enabled.
+     *
+     * @param string $attr Attributes to add to the comments box.
+     *
+     * @return string HTML code for the comments box.
+     */
+    protected function get_comments_box($attr = '') {
+        if (!empty($this->config->enablecomment)) {
+            if (empty($this->config->numposts)) {
+                $this->config->numposts = 10;
+            }
+            $commentattr = 'data-num-posts="'.$this->config->numposts.'"';
+            if (empty($this->config->commentorder)) {
+                $this->config->commentorder = self::ORDER_SOCIAL;
+            }
+            $commentattr .= 'data-order-by="'.$this->config->commentorder.'"';
+            return "<div class='fb-comments' $commentattr $attr></div>";
+        }
+        return '';
     }
 }
