@@ -43,7 +43,6 @@ class block_fbcomments_edit_form extends block_edit_form {
         $mform->addElement('select', 'config_colorscheme', get_string('colorscheme', 'block_fbcomments'), $options);
         $mform->setDefault('config_colorscheme', 'light');
 
-
         $mform->addElement('advcheckbox', 'config_enablelike', get_string('enablelike', 'block_fbcomments'));
         $mform->addElement('advcheckbox', 'config_enableshare', get_string('enableshare', 'block_fbcomments'));
         $mform->addElement('advcheckbox', 'config_enablecomment', get_string('enablecomment', 'block_fbcomments'));
@@ -81,7 +80,7 @@ class block_fbcomments_edit_form extends block_edit_form {
         $pagecontext = $this->page->context;
         $coursecontext = $pagecontext->get_course_context(IGNORE_MISSING);
         if (has_capability('block/fbcomments:manageurl', context_system::instance())) {
-            // Most probabily an admin.
+            // Most probably an admin.
             $options[2] = get_string('siteroot', 'block_fbcomments');
         }
         if ($coursecontext && has_capability('block/fbcomments:manageurl', $coursecontext)) {
