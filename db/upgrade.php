@@ -17,7 +17,7 @@
  * Upgrade code for fbcomments block instances.
  *
  * @package   block_fbcomments
- * @copyright 2013 Ankit Agarwal
+ * @copyright 2013 Ankit Agarwal <ankit.agrr@gmail.com>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 function xmldb_block_fbcomments_upgrade($oldversion) {
