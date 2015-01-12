@@ -31,6 +31,15 @@ class block_fbcomments extends block_base {
     /** @const string order by constants. (used for comments ordering) */
     const ORDER_REVERSE_TIME = 'reverse_time';
 
+    /** @const int enable like button. */
+    const BUTTON_ENABLE_LIKE = 1;
+
+    /** @const int enable recommend button.*/
+    const BUTTON_ENABLE_RECOMMEND = 2;
+
+    /** @const int disable all buttons. */
+    const BUTTON_DISABLE_ALL = 0;
+
     public function  __construct() {
         $this->title = get_string('pluginname', 'block_fbcomments');
     }
@@ -149,6 +158,20 @@ class block_fbcomments extends block_base {
     }
 
     /**
+     * Returns a list of allowed order-by parameters.
+     *
+     * @return array
+     */
+    public static function get_button_options() {
+        $arr = array(
+            self::BUTTON_DISABLE_ALL => get_string('disable'),
+            self::BUTTON_ENABLE_LIKE => get_string('buttonlike', 'block_fbcomments'),
+            self::BUTTON_ENABLE_RECOMMEND => get_string('buttonrecommend', 'block_fbcomments')
+        );
+        return $arr;
+    }
+
+    /**
      * Get Facebook js code.
      *
      * @return string
@@ -173,6 +196,14 @@ class block_fbcomments extends block_base {
     protected function get_like_share_button($attr = '') {
         if (!empty($this->config->enablelike)) {
             $likeattr = 'data-send="false" data-show-faces="false"';
+
+            if ($this->config->enablelike == 1) {
+                // Like button.
+                $likeattr .= ' data-action="like"';
+            } else {
+                // Recommend button.
+                $likeattr .= ' data-action="recommend"';
+            }
 
             // Add a share button if specified.
             if (!empty($this->config->enableshare)) {

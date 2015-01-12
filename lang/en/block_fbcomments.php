@@ -24,6 +24,8 @@
 $string['appid'] = 'Facebook App id';
 $string['appid_help'] = 'Facebook App lets you manage comments posted on various pages using this block. It also gives you various other related stats.
 Visit <a target="_blank" href="http://developers.facebook.com/apps/"> Get a facebook app </a> to get one. Setting this is optional.';
+$string['buttonlike'] = "Like";
+$string['buttonrecommend'] = "Recommend";
 $string['commentorder'] = 'Order of comments';
 $string['commentorder_help'] = 'Comments can be ordered by following order:-
 
@@ -40,7 +42,7 @@ $string['colorscheme'] = 'Theme to use';
 $string['coursepage'] = 'Contents for the course';
 $string['darkcolor'] = 'Dark color theme';
 $string['enablecomment'] = 'Enable comments';
-$string['enablelike'] = 'Enable Like button';
+$string['enablelike'] = 'Enable Like/recommend button';
 $string['enableshare'] = 'Enable Share button';
 $string['fbcomments:addinstance'] = 'Add a new Facebook comments block';
 $string['fbcomments:manageurl'] = 'Manage Facebook comments block url';
