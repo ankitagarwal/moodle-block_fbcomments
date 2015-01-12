@@ -17,7 +17,7 @@ Installation Instruction
 
 Moodle compatibility
 =====================
-* Tested with Moodle 2.2, 2.3, 2.4 and 2.5
+* Tested with Moodle 2.5, 2.6, 2.7 and 2.8
 
 Things to do
 =====================
@@ -34,6 +34,7 @@ Features
 * Display indivisual box for each page or a single one through out the site.
 * Ability to manage all comments posted using a Fb app id.
 * Supports a dark and light colored theme.
+* Supports a recommend button.
 
 Change log
 =====================
@@ -47,6 +48,7 @@ Change log
 * 2013071800 - Add support for ordering of comments - 1.7
 * 2014032000 - Add support for Moodle 2.7 and drop support for Moodle 2.2 - 1.8
 * 2014072100 - Minor clean up and drop support Moodle 2.3 - 1.9
+* 2015011200 - Drop 2.4/2.5, support 2.8, new recommend button, behat tests, travis-ci support - 2.0
 
 About Author
 =====================
