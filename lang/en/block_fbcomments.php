@@ -39,7 +39,7 @@ Reverse time commented: Comments are shown in the opposite order from which they
 with the newest comments at the top,and the oldest at the bottom.';
 $string['configtitle'] = 'Block title';
 $string['colorscheme'] = 'Theme to use';
-$string['coursepage'] = 'Contents for the course';
+$string['coursepage'] = 'Content for the course';
 $string['darkcolor'] = 'Dark color theme';
 $string['enablecomment'] = 'Enable comments';
 $string['enablelike'] = 'Enable Like/recommend button';
@@ -50,7 +50,7 @@ $string['fbcomments:myaddinstance'] = 'Add a new Facebook comments block';
 $string['invalidvalue'] = 'That is an invalid value';
 $string['leaveblanktohide'] = 'leave blank to hide the title';
 $string['lightcolor'] = 'Light color theme';
-$string['modpage'] = 'Contents for the module:{$a}';
+$string['modpage'] = 'Content for the module:{$a}';
 $string['newfbblock'] = 'Facebook comments';
 $string['notnumeric'] = 'This field must be numeric';
 $string['numposts'] = 'Number of comments to show';
@@ -58,7 +58,7 @@ $string['pluginname'] = 'Facebook comments';
 $string['reverse_time'] = 'Reverse time commented';
 $string['siteroot'] = 'Content for whole site';
 $string['social'] = 'Social';
-$string['thispage'] = 'Contents for the block page only';
+$string['thispage'] = 'Content for the block page only';
 $string['time'] = 'Time commented';
 $string['urltype'] = 'Block represents';
 
