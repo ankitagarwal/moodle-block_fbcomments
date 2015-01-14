@@ -9,6 +9,7 @@ language: php
 php:
 - "5.4"
 - "5.5"
+- "5.6"
 env:
 - DB=pgsql MOODLE_VERSION=master
 - DB=pgsql MOODLE_VERSION=MOODLE_28_STABLE
@@ -33,6 +34,6 @@ before_script:
 - "wget http://selenium-release.storage.googleapis.com/2.44/selenium-server-standalone-2.44.0.jar"
 - "(java -jar selenium-server-standalone-2.44.0.jar &) 2> /dev/null > /dev/null"
 # Give time to selenium to start up.
-- sleep 5
+- sleep 10
 script:
 - vendor/bin/behat --config /home/travis/bht_moodledata/behat/behat.yml --tags @block_fbcomments
