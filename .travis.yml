@@ -21,6 +21,9 @@ env:
   - DB=pgsql MOODLE_VERSION=MOODLE_30_STABLE TAG=@block_fbcomments
 
 matrix:
+
+  fast_finish: true
+
   exclude:
     - env: DB=pgsql MOODLE_VERSION=MOODLE_30_STABLE TAG=@block_fbcomments
       php: 7.1
