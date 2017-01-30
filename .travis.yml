@@ -22,13 +22,13 @@ env:
 
 matrix:
   exclude:
-    - env: DB=pgsql MOODLE_VERSION=MOODLE_30_STABLE
+    - env: DB=pgsql MOODLE_VERSION=MOODLE_30_STABLE TAG=@block_fbcomments
       php: 7.1
-    - env: DB=pgsql MOODLE_VERSION=MOODLE_31_STABLE
+    - env: DB=pgsql MOODLE_VERSION=MOODLE_31_STABLE TAG=@block_fbcomments
       php: 7.1
-    - env: DB=pgsql MOODLE_VERSION=MOODLE_32_STABLE
+    - env: DB=pgsql MOODLE_VERSION=MOODLE_32_STABLE TAG=@block_fbcomments
       php: 5.6
-    - env: DB=pgsql MOODLE_VERSION=master
+    - env: DB=pgsql MOODLE_VERSION=master TAG=@block_fbcomments
       php: 5.6
 
 install:
