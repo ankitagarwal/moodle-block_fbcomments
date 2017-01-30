@@ -1,7 +1,7 @@
 Fbcomments
 =====================
 
-Facebook like and comment block for Moodle
+Facebook like, share and comment block for Moodle
 
 Installation Instruction
 =====================
@@ -13,15 +13,11 @@ Installation Instruction
 * Turn editing on in any home or course page or any other page.
 * Add the block to the page
 * Visit the config link in the block for more options.
-* Please note due to the way FB works, it probabily wont work properly on local installs.
+* Please note, due to the way Facebook works, the block probabily wont work well on local installs.
 
 Moodle compatibility
 =====================
 * Tested with Moodle 2.5, 2.6, 2.7 and 2.8
-
-Things to do
-=====================
-* Add more customisation options
 
 Maturity
 ====================
@@ -49,6 +45,7 @@ Change log
 * 2014032000 - Add support for Moodle 2.7 and drop support for Moodle 2.2 - 1.8
 * 2014072100 - Minor clean up and drop support Moodle 2.3 - 1.9
 * 2015011200 - Drop 2.4/2.5, support 2.8, new recommend button, behat tests, travis-ci support - 2.0
+* 2017013000 - Updated supported versions, update travis, - 2.1
 
 About Author
 =====================
@@ -60,7 +57,7 @@ https://github.com/ankitagarwal
 
 http://ankitkumaragarwal.com
 
-ankit@moodle.com
+ankit.agrr@gmail.com
 
 License
 =====================
