@@ -1,7 +1,7 @@
 notifications:
-email:
-on_success: never
-on_failure: always
+  email:
+    on_success: never
+    on_failure: always
 
 before_install:
   - "export DISPLAY=:99.0"
@@ -21,7 +21,6 @@ env:
   - DB=pgsql MOODLE_VERSION=MOODLE_30_STABLE TAG=@block_fbcomments
 
 matrix:
-  include:
   exclude:
     - env: DB=pgsql MOODLE_VERSION=MOODLE_30_STABLE
       php: 7.1
@@ -55,7 +54,7 @@ before_script:
   - "wget http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.1.jar"
   - "(java -jar selenium-server-standalone-2.53.1.jar &) 2> /dev/null > /dev/null"
   # Give time to selenium to start up.
-- sleep 10
+  - sleep 10
 
 script:
   - vendor/bin/behat --config /home/travis/bht_moodledata/behat/behat.yml --tags $TAG
