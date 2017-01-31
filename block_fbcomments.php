@@ -105,7 +105,7 @@ class block_fbcomments extends block_base {
         $this->page->requires->js_init_code($jscode);
 
         $color = $this->config->colorscheme;
-        $attr = 'data-href="'.$url.'" colorscheme="'.$color.'"';
+        $attr = 'data-href="'.$url.'" data-colorscheme="'.$color.'"';
         $this->content->text .= $this->get_like_share_button($attr); // Add like/share button if needed.
         $this->content->text .= $this->get_comments_box($attr); // Add comments block.
 
