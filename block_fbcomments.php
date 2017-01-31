@@ -78,26 +78,26 @@ class block_fbcomments extends block_base {
         if ($this->content !== null) {
             return $this->content;
         }
-        $fblike = null;
-        $fbcomment = null;
+
         $this->content = new stdClass();
         // Config wont be set if block is just added.
-        if (!empty($this->config->urltype)) {
-            switch ($this->config->urltype) {
-                case 4 : $url = $this->get_mod_url();
-                        break;
-                case 3 : $url = $this->get_course_url();
-                        break;
-                case 2 : $url = new moodle_url($CFG->wwwroot);
-                        break;
-                case 1 :
-                default : $url = $this->page->url;
-                        break;
-            }
-        } else {
-            // No point going any further.
+        // No point going any further.
+        if (empty($this->config->urltype)) {
             return '';
         }
+
+        switch ($this->config->urltype) {
+            case 4 : $url = $this->get_mod_url();
+                    break;
+            case 3 : $url = $this->get_course_url();
+                    break;
+            case 2 : $url = new moodle_url($CFG->wwwroot);
+                    break;
+            case 1 :
+            default : $url = $this->page->url;
+                    break;
+        }
+
         $url = $url->out(true);
 
         $this->content->text = '<div id="fb-root"></div>';
@@ -119,7 +119,8 @@ class block_fbcomments extends block_base {
      */
     public function get_course_url() {
         $context = $this->context->get_course_context();
-        return $url = new moodle_url($context->get_url());
+        $url = new moodle_url($context->get_url());
+        return $url;
     }
 
     /**
@@ -130,7 +131,8 @@ class block_fbcomments extends block_base {
     public function get_mod_url() {
         // Context of the page holding the block.
         $context = $this->page->context;
-        return $url = new moodle_url($context->get_url());
+        $url = new moodle_url($context->get_url());
+        return $url;
     }
 
     /**
