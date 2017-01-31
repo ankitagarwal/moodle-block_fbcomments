@@ -45,7 +45,7 @@ Change log
 * 2014032000 - Add support for Moodle 2.7 and drop support for Moodle 2.2 - 1.8
 * 2014072100 - Minor clean up and drop support Moodle 2.3 - 1.9
 * 2015011200 - Drop 2.4/2.5, support 2.8, new recommend button, behat tests, travis-ci support - 2.0
-* 2017013000 - Updated supported versions, update travis, - 2.1
+* 2017013000 - Updated supported versions, update travis, api fixes and minor refactor - 2.1
 
 About Author
 =====================
