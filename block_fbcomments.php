@@ -11,7 +11,8 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 //
-// For GNU General Public License, see <http://www.gnu.org/licenses/>.
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Fbcomments block class.
@@ -22,22 +23,22 @@
  */
 class block_fbcomments extends block_base {
 
-    /** @const string order by constants. (used for comments ordering) */
+    /** Order by constants. (used for comments ordering) */
     const ORDER_SOCIAL = 'social';
 
-    /** @const string order by constants. (used for comments ordering) */
+    /** Order by constants. (used for comments ordering) */
     const ORDER_TIME = 'time';
 
-    /** @const string order by constants. (used for comments ordering) */
+    /** Order by constants. (used for comments ordering) */
     const ORDER_REVERSE_TIME = 'reverse_time';
 
-    /** @const int enable like button. */
+    /** Enable like button. */
     const BUTTON_ENABLE_LIKE = 1;
 
-    /** @const int enable recommend button.*/
+    /** Enable recommend button.*/
     const BUTTON_ENABLE_RECOMMEND = 2;
 
-    /** @const int disable all buttons. */
+    /** Disable all buttons. */
     const BUTTON_DISABLE_ALL = 0;
 
     public function  __construct() {

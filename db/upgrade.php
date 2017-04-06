@@ -11,7 +11,8 @@
 // MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 // GNU General Public License for more details.
 //
-// For GNU General Public License, see <http://www.gnu.org/licenses/>.
+// You should have received a copy of the GNU General Public License
+// along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
  * Upgrade code for fbcomments block instances.
@@ -19,6 +20,13 @@
  * @package   block_fbcomments
  * @copyright 2013 Ankit Agarwal <ankit.agrr@gmail.com>
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+
+/**
+ * Upgrade code.
+ *
+ * @param $oldversion
+ * @return bool
  */
 function xmldb_block_fbcomments_upgrade($oldversion) {
     return true;
