@@ -24,8 +24,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2017013000;        // The current plugin version (Date: YYYYMMDDXX)
-$plugin->requires  = 2015111600;        // Requires this Moodle version
-$plugin->component = 'block_fbcomments';      // Full name of the plugin (used for diagnostics)
+$plugin->version   = 2017013000;        // The current plugin version (Date: YYYYMMDDXX).
+$plugin->requires  = 2015111600;        // Requires this Moodle version.
+$plugin->component = 'block_fbcomments';      // Full name of the plugin (used for diagnostics).
 $plugin->release   = '2.1';
 $plugin->maturity  = MATURITY_STABLE;

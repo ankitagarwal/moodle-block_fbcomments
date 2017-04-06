@@ -24,7 +24,7 @@
 
 require_once(__DIR__ . '/../../../../lib/behat/behat_base.php');
 
-use Behat\Behat\Context\Step\Given as Given,
+use Moodle\BehatExtension\Context\Step\Given as Given,
     Behat\Mink\Exception\ElementNotFoundException as ElementNotFoundException;
 
 /**
@@ -42,10 +42,10 @@ class behat_block_fbcomments extends behat_base {
      *
      * @Given /^I switch to fbcomments iframe$/
      * @throws ElementNotFoundException
-     * @return Given[] the steps.
+     * @return Given the steps.
      */
     public function switch_to_fbcomments_iframe() {
-        $iframe = $this->find('css' ,'iframe[title~="Facebook"]');
+        $iframe = $this->find('css' , 'iframe[title~="Facebook"]');
         if (empty($iframe)) {
             // Iframe not found.
             throw new ElementNotFoundException($this->getSession(), 'Facebook iframe ');
