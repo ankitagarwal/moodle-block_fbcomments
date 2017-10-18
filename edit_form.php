@@ -31,6 +31,12 @@ defined('MOODLE_INTERNAL') || die();
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class block_fbcomments_edit_form extends block_edit_form {
+
+    /**
+     * Definition of custom form.
+     *
+     * @param object $mform
+     */
     protected function specific_definition($mform) {
 
         // Fields for editing HTML block title and contents.
@@ -79,6 +85,11 @@ class block_fbcomments_edit_form extends block_edit_form {
     }
     // No security checks needed as moodle automatically checks if submitted value for a select is in $options.
 
+    /**
+     * Get page options.
+     *
+     * @return array
+     */
     private function get_page_options() {
         $options = array(1 => get_string('thispage', 'block_fbcomments'));
         $pagecontext = $this->page->context;
