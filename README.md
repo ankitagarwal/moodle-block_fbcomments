@@ -15,10 +15,6 @@ Installation Instruction
 * Visit the config link in the block for more options.
 * Please note, due to the way Facebook works, the block probabily wont work well on local installs.
 
-Moodle compatibility
-=====================
-* Tested with Moodle 2.5, 2.6, 2.7 and 2.8
-
 Maturity
 ====================
 STABLE
