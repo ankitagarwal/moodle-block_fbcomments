@@ -102,6 +102,7 @@ class block_fbcomments extends block_base {
         }
 
         $url = $url->out(true);
+//        $url = "https://google.com";  // For testing.
 
         $this->content->text = '<div id="fb-root"></div>';
         $jscode = $this->get_fb_js();
