@@ -44,6 +44,7 @@ Change log
 * 2017013000 - Updated supported versions, update travis, api fixes and minor refactor - 2.1
 * 2017101800 - Updated supported versions, update travis, api fixes and minor refactor - 2.2
 * 2018061100 - Version upgrade - 2.3
+* 2019031300 - Version upgrade - 2.4
 
 =====================
 Ankit Kumar Agarwal
