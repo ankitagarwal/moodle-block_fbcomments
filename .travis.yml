@@ -13,14 +13,13 @@ cache:
 
 php:
   - "7.0"
-  - "7.1"
-  - "7.2"
+  - "7.3"
 
 env:
-  - DB=pgsql MOODLE_BRANCH=MOODLE_35_STABLE
   - DB=pgsql MOODLE_BRANCH=MOODLE_36_STABLE
-  - DB=mysqli MOODLE_BRANCH=MOODLE_35_STABLE
+  - DB=pgsql MOODLE_BRANCH=MOODLE_37_STABLE
   - DB=mysqli MOODLE_BRANCH=MOODLE_36_STABLE
+  - DB=mysqli MOODLE_BRANCH=MOODLE_37_STABLE
 
 before_install:
   - phpenv config-rm xdebug.ini
