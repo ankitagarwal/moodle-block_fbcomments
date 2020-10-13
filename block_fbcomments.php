@@ -66,7 +66,6 @@ class block_fbcomments extends block_base {
 
     public function get_content() {
         global $CFG;
-
         if (!empty($this->config->appid) && !empty($this->config->enablecomment)) {
             $meta = html_writer::tag("meta", "", array("property" => "fb:app_id", "content" => $this->config->appid));
             if (empty ($CFG->additionalhtmlhead)) {
@@ -114,6 +113,18 @@ class block_fbcomments extends block_base {
         $this->content->text .= $this->get_comments_box($attr); // Add comments block.
 
         return $this->content;
+    }
+
+    /**
+     * Language for the comment box.
+     *
+     * @return string language to use
+     */
+    public function get_lang() {
+        if (!empty($this->config->lang)) {
+            return $this->config->lang;
+        }
+        return "en_US";
     }
 
     /**
@@ -183,11 +194,12 @@ class block_fbcomments extends block_base {
      * @return string
      */
     protected function get_fb_js() {
+        $lang = $this->get_lang();
         return '(function(d, s, id) {
           var js, fjs = d.getElementsByTagName(s)[0];
           if (d.getElementById(id)) return;
           js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+          js.src = "//connect.facebook.net/' . $lang . '/all.js#xfbml=1";
           fjs.parentNode.insertBefore(js, fjs);
         }(document, "script", "facebook-jssdk"));';
     }
