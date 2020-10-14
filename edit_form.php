@@ -64,6 +64,11 @@ class block_fbcomments_edit_form extends block_edit_form {
         $mform->setDefault('config_enableshare', 0);
         $mform->disabledIf('config_enableshare', 'config_enablelike', 'eq', 0);
 
+        $mform->addElement('text', 'config_lang', get_string('lang', 'block_fbcomments'));
+        $mform->setDefault('config_lang', 'en_US');
+        $mform->setType('config_lang', PARAM_TEXT);
+        $mform->addHelpButton('config_lang', 'lang', 'block_fbcomments');
+
         $mform->addElement('text', 'config_numposts', get_string('numposts', 'block_fbcomments'));
         $mform->setType('config_numposts', PARAM_INT);
         $mform->addRule('config_numposts', get_string("notnumeric", "block_fbcomments"), "numeric", null, "client");

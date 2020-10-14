@@ -51,6 +51,8 @@ $string['fbcomments:addinstance'] = 'Add a new Facebook comments block';
 $string['fbcomments:manageurl'] = 'Manage Facebook comments block url';
 $string['fbcomments:myaddinstance'] = 'Add a new Facebook comments block';
 $string['invalidvalue'] = 'That is an invalid value';
+$string['lang'] = 'Language of the Block';
+$string['lang_help'] = 'Please get the right local to use from <a target="_blank" href="https://developers.facebook.com/docs/plugins/comments"> Developer Docs</a>. For example, es_LA for Spanish.';
 $string['leaveblanktohide'] = 'leave blank to hide the title';
 $string['lightcolor'] = 'Light color theme';
 $string['modpage'] = 'Content for the module:{$a}';
