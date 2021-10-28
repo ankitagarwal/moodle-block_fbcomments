@@ -47,6 +47,7 @@ Change log
 * 2019031300 - Version upgrade - 2.4
 * 2019092800 - Version upgrade - 2.5
 * 2020101202 - Version upgrade - 3.0 + Multiple lang suuport.
+* 2021102800 - Version upgrade - 3.1
 
 =====================
 Ankit Kumar Agarwal
