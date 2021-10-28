@@ -24,8 +24,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2020101202;
-$plugin->requires  = 2019111800; // Supports 3.8 and above.
+$plugin->version   = 2021102800;
+$plugin->requires  = 2021051700; // Supports 3.11 and above.
 $plugin->component = 'block_fbcomments';      // Full name of the plugin (used for diagnostics).
-$plugin->release   = '3.0';
+$plugin->release   = '3.1';
 $plugin->maturity  = MATURITY_STABLE;
