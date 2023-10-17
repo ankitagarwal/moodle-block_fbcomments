@@ -60,6 +60,7 @@ $string['newfbblock'] = 'Facebook comments';
 $string['notnumeric'] = 'This field must be numeric';
 $string['numposts'] = 'Number of comments to show';
 $string['pluginname'] = 'Facebook comments';
+$string['privacy:metadata'] = 'The Facebook comments block does not store user information on the Moodle site.';
 $string['reverse_time'] = 'Reverse time commented';
 $string['siteroot'] = 'Content for whole site';
 $string['social'] = 'Social';
